@@ -204,9 +204,9 @@ def test_linear():
         X_test, y_test = split_test(X1, y1, X2, y2)
 
         clf = SVM()
-        clf.fit(X_train, y_train)
+        clf.forward(X_train, y_train)
 
-        y_predict = clf.predict(X_test)
+        y_predict = clf.prediction(X_test)
         correct = np.sum(y_predict == y_test)
         print("%d out of %d predictions correct" % (correct, len(y_predict)))
 
@@ -218,9 +218,9 @@ def test_non_linear():
         X_test, y_test = split_test(X1, y1, X2, y2)
 
         clf = SVM(polynomial_kernel)
-        clf.fit(X_train, y_train)
+        clf.forward(X_train, y_train)
 
-        y_predict = clf.predict(X_test)
+        y_predict = clf.prediction(X_test)
         correct = np.sum(y_predict == y_test)
         print("%d out of %d predictions correct" % (correct, len(y_predict)))
 
@@ -232,9 +232,9 @@ def test_soft():
         X_test, y_test = split_test(X1, y1, X2, y2)
 
         clf = SVM(C=1000.1)
-        clf.fit(X_train, y_train)
+        clf.forward(X_train, y_train)
 
-        y_predict = clf.predict(X_test)
+        y_predict = clf.prediction(X_test)
         correct = np.sum(y_predict == y_test)
         print("%d out of %d predictions correct" % (correct, len(y_predict)))
 
